@@ -1,47 +1,32 @@
-<!DOCTYPE html>
-<html manifest="index.appcache">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta name="format-detection" content="telephone=no, email=no" />
-<meta name="x5-orientation" content="portrait" />
-<meta name="x5-fullscreen" content="true" />
-<meta name="x5-page-mode" content="app" />
-<title>History of Adven</title>
-<link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-startup-image" href="img/apple-touch-startup-image-320x460.png">
-<link rel="apple-touch-startup-image" href="img/apple-touch-startup-image-640x920.png" media="(-webkit-min-device-pixel-ratio: 2)">
-<link rel="apple-touch-startup-image" href="img/apple-touch-startup-image-640x1096.png" media="(device-height: 568px)">
-<link rel="stylesheet" href="dist/main.min.css" />
-<script src="dist/main.min.js"></script>
-<script>
-$.extend(spring.config, {
-  // my blog title
-  title: 'Adven',
-  // my blog description
-  desc: "A blog engine written by GitHub Issues  \n[Fork me on GitHub](https://github.com/zhaoda/spring)",
-  // my github username
-  owner: 'Simida',
-  // creator's username
-  creator: 'Simida',
-  // the repository name on github for writting issues
-  repo: 'Simida.github.com',
-  // custom page
-  pages: [
-  ]
-})
-</script>
-</head>
-<body>
-<!--[if lt IE 9]>
-<script>
-location.href = 'https://github.com/' + spring.config.owner + '/' + spring.config.repo + '/issues?page=1&state=open'
-</script>
-<![endif]-->
-</body>
-</html>
+---
+layout: default
+title: Kunka
+keywords: Jekyll theme, Kunka
+---
+{% for post in paginator.posts %}
+    <div class="article">
+        <h3 class="title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+        <article class="rexp">
+            <p>{{ post.excerpt }}</p>
+        </article>
+        <a href="{{ site.url }}{{ post.url }}" class="more"><i class="icon-link"></i></a>
+        <div class="info">
+            <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+            <span class="info-date">{{ post.date | date_to_string }}</span>
+        </div>
+    </div>
+{% endfor %}
+{% if paginator.total_pages > 1 %}
+    <nav class="pagination fn-clear">
+        <span class="pagination-icon"><i class=" icon-copy"></i></span>
+        <ul class="pagination-list">
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <li class="current"><a href="javascript:void(0);">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}
