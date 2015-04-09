@@ -1,3 +1,0 @@
-# simida.github.com
-
-blog
