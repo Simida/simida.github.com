@@ -7,7 +7,7 @@
         <div class="container">\
           <div class="menu">\
             <menu>\
-              <li><a href="https://github.com/<%=$.spring.config.owner%>/<%=$.spring.config.repo%>/issues?state=open" data-href="#" class="taplink">Home</a></li>\
+              <li><a href="https://github.com/<%=$.spring.config.owner%>/<%=$.spring.config.repo%>/issues?state=open" data-href="#" class="taplink">Home3</a></li>\
             </menu>\
             <%if($.spring.data.labels && $.spring.data.labels.length) {%>\
             <menu>\
